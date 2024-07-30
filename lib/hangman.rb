@@ -10,7 +10,7 @@ class Hangman
   def generate_secret_word
     loop do
       secret_word = words.sample
-      return secret_word if secret_word.length.between?(5, 12)
+      return secret_word.downcase if secret_word.length.between?(5, 12)
     end
   end
 
@@ -22,5 +22,9 @@ class Hangman
 
       puts 'Please a valid guess.'
     end
+  end
+
+  def correct_guess?(guess)
+    secret_word.include?(guess) ? true : false
   end
 end
