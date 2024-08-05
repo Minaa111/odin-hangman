@@ -21,7 +21,7 @@ class Hangman
   def guess
     loop do
       print 'Enter a guess: '
-      letter = gets.chomp
+      letter = gets.chomp.downcase
       return letter if letters.include? letter
 
       puts 'Please enter a valid guess.'
